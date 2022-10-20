@@ -6,7 +6,6 @@
     - name: "list database in 5432"
       postgresql_query:
        db: postgres
-       port: 5432
        query: "select * from pg_database;"
       become_user: postgres
       register: db_res_5432
@@ -15,16 +14,3 @@
 
     - debug:
        var: db_res_5432 | json_query('query_result[*].datname')
-
-    - name: "list database in 5445"
-      postgresql_query:
-       db: postgres
-       port: 5445
-       query: "select * from pg_database;"
-      become_user: postgres
-      register: db_res_5445
-      tags:
-       - query_5445
-
-    - debug:
-       var: db_res_5445 | json_query('query_result[*].datname')
