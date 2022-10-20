@@ -5,7 +5,7 @@
     - vars.yml
   tasks:
     - name: "long running queries"
-      community.postgresql.postgresql_query:
+      postgresql_query:
        db: postgres
        query: "select * from pg_extension where extname='pgstattuple';"
       become_user: postgres
