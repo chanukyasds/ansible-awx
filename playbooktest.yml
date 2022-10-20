@@ -7,7 +7,7 @@
       community.postgresql.postgresql_query:
         db: postgres
         query: select * from pg_database;
-      become_user: postgres
+      become_user: awx
       register: query_res
     - debug:
         var: query_res
