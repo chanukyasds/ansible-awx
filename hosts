@@ -43,8 +43,5 @@
 ## db-[99:101]-node.example.com
 
 
-[psql14]
-localhost
-
 [dockerpsql]
 0.0.0.0
