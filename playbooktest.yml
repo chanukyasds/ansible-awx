@@ -1,5 +1,5 @@
 - name: Sample test playbook
-  hosts: thinkpad_ip
+  hosts: 192.168.1.13
   become: 'yes'
   vars_files:
     - vars.yml
