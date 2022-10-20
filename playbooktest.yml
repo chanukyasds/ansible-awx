@@ -3,7 +3,7 @@
   vars_files:
     - vars.yml
   tasks:
-    - name: test query
+    - name: test_query
       community.postgresql.postgresql_query:
         db: postgres
         query: select * from pg_database;
