@@ -1,5 +1,5 @@
 ---
-- hosts: dockerpsql
+- hosts: all
   become: yes
 
   vars_files:
@@ -8,12 +8,10 @@
   tasks:
     - name: "test query"
       community.postgresql.postgresql_query:
-       db: postgres
-       query: "select * from pg_database;"
+        db: postgres
+        query: "select * from pg_database;"
       become_user: postgres
       register: query_res
 
     - debug:
        var: query_res
-
-
