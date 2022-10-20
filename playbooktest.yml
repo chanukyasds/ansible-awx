@@ -14,7 +14,7 @@
        - query_5445
 
     - debug:
-       var: { db_res_5432.query_result.[0]['datname'] }
+       var: { db_res_5432.query_result.0.['datname'] }
 
     - name: "list database in 5445"
       postgresql_query:
@@ -27,4 +27,4 @@
        - query_5445
 
     - debug:
-       var: { db_res_5445.query_result.[0]['datname'] }
+       var: { db_res_5445.query_result.0.['datname'] }
