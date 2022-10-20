@@ -1,5 +1,5 @@
 - name: Sample test playbook
-  hosts: thinkpadlocal
+  hosts: localhost
   become: 'yes'
   vars_files:
     - vars.yml
