@@ -10,5 +10,5 @@
         query: "select * from pg_database;"
       become_user: postgres
       register: query_res
-    - debug:
-        var: query_res
+      debug:
+        msg: Hi This is Test
