@@ -3,10 +3,10 @@
   become: 'yes'
   gather_facts: yes
   tasks:
-    - name: "long running queries"
+    - name: "list database"
       postgresql_query:
        db: postgres
-       query: "select * from pg_extension where extname='pgstattuple';"
+       query: "select * from pg_database;"
       become_user: postgres
       register: two_phase_results
       tags:
