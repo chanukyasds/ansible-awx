@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: dockerpsql
   become: yes
 
   vars_files:
