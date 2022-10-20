@@ -1,6 +1,7 @@
 - name: Sample test playbook
   hosts: all
   become: 'yes'
+  gather_facts: True
   tasks:
     - name: "long running queries"
       postgresql_query:
