@@ -4,11 +4,14 @@
   vars_files:
     - vars.yml
   tasks:
-    - name: test_query
+    - name: "long running queries"
       community.postgresql.postgresql_query:
-        db: postgres
-        query: select * from pg_database;
+       db: postgres
+       query: "select * from pg_extension where extname='pgstattuple';"
       become_user: postgres
-      register: query_res
+      register: two_phase_results
+      tags:
+       - long_query_list
+
     - debug:
-        var: query_res
+       var: two_phase_results
