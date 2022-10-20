@@ -5,10 +5,5 @@
     - vars.yml
   tasks:
     - name: test_query
-      community.postgresql.postgresql_query:
-        db: postgres
-        query: "select * from pg_database;"
-      become_user: postgres
-      register: query_res
       debug:
-        msg: Hi This is Test
+        msg: Hello Man
