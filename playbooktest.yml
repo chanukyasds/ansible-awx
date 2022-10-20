@@ -1,5 +1,5 @@
 - name: Sample test playbook
-  hosts: thinkpad
+  hosts: all
   become: 'yes'
   gather_facts: yes
   tasks:
