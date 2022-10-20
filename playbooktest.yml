@@ -27,4 +27,4 @@
        - query_5445
 
     - debug:
-       var: db_res_5445
+       var: db_res_5432.query_result[*].datname
