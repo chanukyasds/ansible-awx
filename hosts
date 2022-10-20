@@ -42,6 +42,5 @@
 
 ## db-[99:101]-node.example.com
 
-
-[dockerpsql]
+[thinkpadlocal]
 192.168.1.13
