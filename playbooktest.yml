@@ -1,17 +1,13 @@
----
 - hosts: all
-  become: yes
-
+  become: 'yes'
   vars_files:
     - vars.yml
-
   tasks:
-    - name: "test query"
+    - name: test query
       community.postgresql.postgresql_query:
         db: postgres
-        query: "select * from pg_database;"
+        query: select * from pg_database;
       become_user: postgres
       register: query_res
-
     - debug:
-       var: query_res
+        var: query_res
