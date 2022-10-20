@@ -45,3 +45,6 @@
 
 [psql14]
 localhost
+
+[dockerpsql]
+0.0.0.0
