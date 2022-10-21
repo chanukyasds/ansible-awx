@@ -6,13 +6,13 @@
     - name: "list database"
       postgresql_query:
        db: postgres
-       query: "select * from pg_database;"
+       query: "select oid,datname from pg_database;"
       become_user: postgres
       register: db_result
       tags:
        - query_5445
 
     - debug:
-        msg: "{{ ansible_play_hosts | map('extract', hostvars, 'db_result') | map(attribute='query_result') | map(attribute='datname') | join(',') | list }}"
+        msg: "{{ ansible_play_hosts | map('extract', hostvars, 'db_result') | map(attribute='query_result') | list }}"
        
       run_once: yes
