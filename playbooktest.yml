@@ -3,16 +3,23 @@
   become: 'yes'
   gather_facts: no
   tasks:
-    - name: "list database"
+    - name: "list long running queries"
       postgresql_query:
        db: postgres
-       query: " select oid,datname from pg_database;"
+       query: " SELECT
+                      pid,
+                      datname,
+                      now() - pg_stat_activity.query_start AS duration,
+                      query,
+                      state
+                      FROM pg_stat_activity
+                      WHERE  (now() - pg_stat_activity.query_start) > interval '5 minutes'; "
       become_user: postgres
-      register: db_result
+      register: lrq_result
       tags:
-       - query_5445
+       - lrq_query
 
     - debug:
-        msg: "{{ ansible_play_hosts | map('extract', hostvars, 'db_result') | map(attribute='query_result') | list  }}"
+        msg: "{{ ansible_play_hosts | map('extract', hostvars, 'lrq_result') | map(attribute='query_result') | list  }}"
        
       run_once: yes
