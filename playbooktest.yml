@@ -3,14 +3,15 @@
   become: 'yes'
   gather_facts: yes
   tasks:
-    - name: "list database in 5432"
+    - name: "list database"
       postgresql_query:
        db: postgres
        query: "select * from pg_database;"
       become_user: postgres
-      register: db_res_5432
+      register: db_result
       tags:
        - query_5445
 
     - debug:
-       var: db_res_5432 | json_query('query_result[*].datname')
+       msg: "{{ ansible_play_hosts | map('extract', hostvars, 'db_result') | map(attribute='stdout') | list }}"
+       
