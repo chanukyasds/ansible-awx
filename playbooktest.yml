@@ -15,4 +15,4 @@
     - debug:
         msg: "{{ ansible_play_hosts | map('extract', hostvars, 'db_result') | map(attribute='query_result[0]') | map(attribute='datname') | join(',') | list }}"
        
-      
+      run_once: yes
