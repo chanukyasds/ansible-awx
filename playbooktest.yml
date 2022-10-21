@@ -13,6 +13,6 @@
        - query_5445
 
     - debug:
-       msg: "{{ ansible_play_hosts | map('extract', hostvars, 'db_result') | map(attribute='query_result') | list }}"
+       msg: "{{ ansible_play_hosts | map('extract', hostvars, 'db_result') | map(attribute='query_result.datname') | list }}"
        
       run_once: yes
